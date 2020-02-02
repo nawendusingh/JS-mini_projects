@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+  /* root targets highest level parent element -->html parent */
+  /* variables to be used everywhere */
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
+* {
+  /* padding wont affect width of the element */
+  /* padding and border are included in the width and height */
+  box-sizing: border-box;
+}
+body {
+  background-color: #f9fafb;
+  font-family: "Lato", sans-serif;
+  /* all direct children will be flex-items */
+  /* this will put divs in middle easily */
+  display: flex;
+  /* cross axis */
+  align-items: center;
+  /* main axis (default is row)*/
+  justify-content: center;
+  /* vertically center */
+  min-height: 100vh;
+
+  /* Use margin to separate the block from things outside it */
+  /* Use padding to move the contents away from the edges of the block. */
+  /* border is just the border around it */
+
+  margin: 0;
+}
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  /* [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color] */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+}
+.form {
+  /* [top-bottom][left-right */
+  padding: 30px 40px;
+}
+h2 {
+  text-align: center;
+  /* short hand[top][right-left][bottom] */
+  margin: 0 0 20px;
+}
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  /* we need to use absolute on error messages(small tag) which will need a parent with position relative */
+  /* position absolute brings the element out of the flow of elements ann it looks for a parent  */
+  /* with non static position and defaults to body */
+  position: relative;
+}
+.form-control label {
+  color: #777;
+  /* labels are inline by default */
+  /* make it block so that it pushes next element down */
+  display: block;
+  margin-bottom: 5px;
+}
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  /* has its own line with block element */
+  display: block;
+  /* stretch to end */
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+/* to get rid of blue outline */
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+.form-control.success input {
+  border-color: var(--success-color);
+}
+.form-control.error input {
+  border-color: var(--error-color);
+}
+.form-control small {
+  /* create custom properties/variables in css */
+  color: var(--error-color);
+  /* PARENT IS FORM CONTROL */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* display none will collapse everything around it/will be removed from dom and make its children 
+  diplay as none too */
+  /* visibility hidden just hides and space is till taken by the element */
+  visibility: hidden;
+}
+.form-control.error small {
+  visibility: visible;
+}
+
+.form button {
+  cursor: pointer;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
