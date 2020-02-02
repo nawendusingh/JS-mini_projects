@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Sigmar+One&display=swap"); */
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(49, 47, 47);
+  color: #fff;
+  display: flex;
+  /* default is row. all divs were in a single row */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Roboto Mono", sans-serif;
+  margin: 0;
+}
+
+.movie-container {
+  margin: 20px 0;
+}
+
+.movie-container select {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 5px 15px 5px 15px;
+  /* these 3 below are for cross OS support */
+  /* moz is fro firefox and webkit is for opera ,chrome,safari  */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
