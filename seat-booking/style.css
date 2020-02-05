@@ -81,7 +81,7 @@ body {
 }
 /* dont want this to happen to seats in showcase */
 /* need space between showcase and seat bcoz they are parent and child */
-/* not required in line 51 and 54 bcoz they are sibling classes */
+/* not required in line 59 and 62 bcoz they are sibling classes */
 .showcase .seat:not(.occupied):hover {
   cursor: default;
   transform: scale(1);
