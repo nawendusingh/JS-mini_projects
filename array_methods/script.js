@@ -31,6 +31,30 @@ function doubleMoney() {
   });
   updateDom();
 }
+
+// sort user by richest
+function sortByMoney() {
+  data.sort((a, b) => b.money - a.money);
+  updateDom();
+}
+
+// show millionaire
+
+function showMillionairesonly() {
+  data = data.filter(a => a.money > 99999);
+  updateDom();
+}
+
+// add all money
+function calculateWealth() {
+  const total = data.reduce((acc, user) => (acc += user.money), 0);
+  const wealthElement = document.createElement("div");
+  wealthElement.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(
+    total
+  )}</strong></h3>`;
+  main.appendChild(wealthElement);
+  //   updateDom();
+}
 // add object to data-array
 
 function addData(obj) {
@@ -63,3 +87,6 @@ function formatMoney(number) {
 // Event Listener
 addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
+sortBtn.addEventListener("click", sortByMoney);
+showMillionairesBtn.addEventListener("click", showMillionairesonly);
+calculateWealthBtn.addEventListener("click", calculateWealth);
